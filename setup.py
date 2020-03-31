@@ -7,10 +7,10 @@ def read(fname):
 
 
 setup(name='pipelinetweak',
-      version='0.2.2',
-      description='additional wrapper and classes for sklearn\' pipeline API',
-      #long_description=read('README.md'),
-      #long_description_content_type='text/markdown',
+      version='0.3.0',
+      description='additional wrapper classes for the sklearn API',
+      # long_description=read('README.md'),
+      # long_description_content_type='text/markdown',
       url='http://github.com/ulf1/sklearn-pipelinetweak',
       author='Ulf Hamster',
       author_email='554c46@gmail.com',

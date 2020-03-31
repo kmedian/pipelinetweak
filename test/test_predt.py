@@ -1,4 +1,4 @@
-import pipelinetweak
+import pipelinetweak.pipe
 import sklearn.pipeline
 import sklearn.datasets
 import sklearn.linear_model
@@ -13,14 +13,14 @@ def test1():
     X = tmp.data
 
     # Regressor as transformer
-    pipe = sklearn.pipeline.Pipeline(steps=[
-        ('trans', pipelinetweak.PredT(
+    model = sklearn.pipeline.Pipeline(steps=[
+        ('trans', pipelinetweak.pipe.PredT(
             sklearn.linear_model.LinearRegression())),
         ('pred', sklearn.dummy.DummyRegressor())
     ])
     # fit and predict
-    pipe.fit(X, y)
-    y_pred = pipe.predict(X)
+    model.fit(X, y)
+    y_pred = model.predict(X)
     # compare
     target = [
         152.13348416, 152.13348416, 152.13348416, 152.13348416, 152.13348416]

@@ -1,7 +1,7 @@
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/kmedian/pipelinetweak/master?urlpath=lab)
 
 # pipelinetweak
-
+This package contain additional wrapper classes for the sklearn API.
 
 ## Installation
 The `pipelinetweak` [git repo](https://github.com/ulf1/sklearn-pipelinetweak) is available as [PyPi package](https://pypi.org/project/pipelinetweak)
@@ -13,17 +13,17 @@ pip install pipelinetweak
 
 ## Usage
 
-### Model predictions as transformer
+### Model predictions as transformer (`pipelinetweak.pipe`)
 The predictions of `LinearRegression` are used as features for the `DummyRegressor`.
 
 ```
 
 from sklearn.pipeline import Pipeline
-from pipelinetweak import PredT
+from pipelinetweak.pipe import PredT
 from sklearn.linear_model import LinearRegression
 from sklearn.dummy import DummyRegressor
 
-pipe = Pipeline(steps=[
+model = Pipeline(steps=[
     ('trans', PredT(LinearRegression())),
     ('pred', DummyRegressor())
 ])
@@ -33,13 +33,13 @@ The predicted cluster labels (`KMeans`) are one-hot encoded (`OneHotEncoder`), m
 
 ```
 from sklearn.pipeline import Pipeline, FeatureUnion
-from pipelinetweak import PredT
+from pipelinetweak.pipe import PredT
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LinearRegression
 
-pipe = Pipeline(steps=[
+model = Pipeline(steps=[
     ('trans', FeatureUnion(transformer_list=[
         ('prefit', Pipeline(steps=[
             ('kmeans', PredT(KMeans(n_clusters=7))),
@@ -54,7 +54,7 @@ pipe = Pipeline(steps=[
 The predicted probabilities of a binary classifier are used as features.
 
 ```
-from pipelinetweak import ProbT
+from pipelinetweak.pipe import ProbT
 from sklearn.linear_model import LogisticRegression
 
 trans = ProbT(LogisticRegression(solver='lbfgs', multi_class='multinomial'), drop=False)
