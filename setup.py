@@ -7,7 +7,7 @@ def read(fname):
 
 
 setup(name='pipelinetweak',
-      version='0.3.1',
+      version='0.5.0',
       description='additional wrapper classes for the sklearn API',
       # long_description=read('README.md'),
       # long_description_content_type='text/markdown',
@@ -19,6 +19,7 @@ setup(name='pipelinetweak',
       install_requires=[
           'setuptools>=40.0.0',
           'scikit-learn>=0.21.*',
-          'numpy>=1.17.*'],
+          'numpy>=1.17.*',
+          'lagmat>=0.3.*'],
       python_requires='>=3.6',
       zip_safe=False)

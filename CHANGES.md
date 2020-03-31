@@ -1,3 +1,11 @@
+# 0.5.0 / 2020-03-31
+
+  * Cont, RoC, Pct from lagmat migrated
+
+# 0.4.0 / 2020-03-31
+
+  * type hints and docstring added to PredT and ProbT
+
 # 0.3.1 / 2020-03-31
 
   * type hints and docstring added to PredT and ProbT
